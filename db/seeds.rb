@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+require 'json'
+require 'kramdown'
+
+# require 'rest-client'
+
+10.times do
+  article = Kramdown::Document.new(Article.new(title:Faker::Pokemon.name, content:Faker::TwinPeaks.quote)).to_html
+  article.save
+end

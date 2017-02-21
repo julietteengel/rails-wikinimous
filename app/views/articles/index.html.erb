@@ -1,0 +1,17 @@
+<h1>Articles : </h1>
+
+
+<!-- Should display a list of all tasks and, for each task:
+a link to its show view (use a link_to helper)
+a link to its edit view
+a link to its delete action. Hint: a standard link does not allow to perform DELETE request, so here you should add a method: :delete option to your link_to helper. -->
+<h1>My articles :</h1>
+<ul>
+  <%= @articles.each do |article| %>
+  <li>
+    <%= link_to article.title, article_path(article) %>
+  </li>
+  <li> <%= link_to("Edit", edit_article_path(article)) %>
+  <%= link_to("Destroy", article_path(article), method: :delete) %></li>
+  <% end %>
+</ul>
